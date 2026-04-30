@@ -160,43 +160,6 @@ export default function App() {
                   </div>
                 </div>
               </section>
-
-              {/* Welcome Section */}
-              <section className="flex-1 bg-white border-t border-sleek-border p-6 lg:p-16">
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="space-y-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-sleek-accent rounded-full text-[10px] font-bold uppercase tracking-wider">
-                      <Globe size={12} />
-                      Global UBO
-                    </div>
-                    <h3 className="text-sleek-text-main font-extrabold text-3xl sm:text-4xl md:text-5xl tracking-tight leading-[1.1]">
-                      Explore Global <span className="text-sleek-accent">UBO Regulations</span>
-                    </h3>
-                    <p className="text-lg text-sleek-text-muted leading-relaxed">
-                      Select a jurisdiction from the interactive world map above to access regulatory details, beneficial ownership thresholds, 2026 outlooks and more.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-900 rounded-[2.5rem] p-10 text-white space-y-8 shadow-2xl relative overflow-hidden group">
-                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-sleek-accent opacity-20 blur-3xl rounded-full transition-transform group-hover:scale-150 duration-700" />
-                    
-                    <div className="flex items-start gap-5">
-                      <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm shrink-0">
-                        <FileText size={28} className="text-sleek-accent" />
-                      </div>
-                      <div className="space-y-2">
-                        <p className="text-xl font-bold">Get the 2026 Global UBO Guide</p>
-                        <p className="text-[14px] text-slate-400 leading-relaxed">Get your copy of the complete UBO Guide with detailed information for 50 jurisdictions.</p>
-                      </div>
-                    </div>
-                    
-                    <button className="bg-sleek-accent hover:bg-sleek-accent/90 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 w-auto">
-                      <Download size={18} />
-                      Download Now
-                    </button>
-                  </div>
-                </div>
-              </section>
             </motion.div>
           ) : (
             /* Split View (Atlas Mode) */
