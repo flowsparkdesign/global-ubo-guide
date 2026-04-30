@@ -32,10 +32,10 @@ export default function SearchAndFilters({
   };
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="flex flex-col items-start gap-4 sm:w-fit">
+    <div className="search-filters flex flex-col gap-5">
+      <div className="search-filters-row">
         {/* Region Chips */}
-        <div className="flex bg-white rounded-xl p-1 border border-sleek-border shadow-sm w-full overflow-x-auto no-scrollbar whitespace-nowrap">
+        <div className="search-filters-tabs flex bg-white rounded-xl p-1 border border-sleek-border shadow-sm overflow-x-auto no-scrollbar whitespace-nowrap">
           {regions.map((region) => (
             <button
               key={region}
@@ -52,7 +52,7 @@ export default function SearchAndFilters({
         </div>
 
         {/* Search Bar */}
-        <div className="relative w-full">
+        <div className="search-filters-search relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-sleek-text-muted" size={16} />
           <input
             type="text"
