@@ -134,10 +134,14 @@ export default function CountryCard({ country, onNext, onPrev, nextName, prevNam
             <p className="text-xs sm:text-sm text-slate-400">Get your copy of the complete UBO Guide with detailed information for 50 jurisdictions.</p>
           </div>
           <div className="flex justify-center">
-            <button className="relative z-10 bg-sleek-accent hover:bg-sleek-accent/90 text-white font-bold py-3 sm:py-3.5 px-8 sm:px-10 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base">
+            <a
+              href="https://www.athennian.com/2026-ubo-guide#download-guide"
+              target="_top"
+              className="relative z-10 bg-sleek-accent hover:bg-sleek-accent/90 text-white font-bold py-3 sm:py-3.5 px-8 sm:px-10 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base"
+            >
               <Download size={18} />
               Download Now
-            </button>
+            </a>
           </div>
         </div>
       </div>
