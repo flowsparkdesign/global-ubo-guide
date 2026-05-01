@@ -1,7 +1,6 @@
-import { motion } from 'motion/react';
-import { ReactNode } from 'react';
+import { MouseEvent } from 'react';
 import { CountryUboData } from '../types';
-import { Globe, Shield, Lightbulb, LayoutGrid, Check, X, FileSearch, Download, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Globe, Shield, Lightbulb, LayoutGrid, Check, X, Download, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface CountryCardProps {
   country: CountryUboData;
@@ -11,7 +10,45 @@ interface CountryCardProps {
   prevName?: string;
 }
 
+const DOWNLOAD_GUIDE_ANCHOR = 'download-guide';
+const DOWNLOAD_GUIDE_MESSAGE = {
+  type: 'athennian:scroll-to-anchor',
+  anchor: DOWNLOAD_GUIDE_ANCHOR,
+};
+
 export default function CountryCard({ country, onNext, onPrev, nextName, prevName }: CountryCardProps) {
+  const handleDownloadGuideClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    event.preventDefault();
+
+    const scrollToTarget = (doc: Document) => {
+      const target = doc.getElementById(DOWNLOAD_GUIDE_ANCHOR);
+      if (!target) return false;
+
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return true;
+    };
+
+    if (scrollToTarget(document)) {
+      history.replaceState(null, '', `#${DOWNLOAD_GUIDE_ANCHOR}`);
+      return;
+    }
+
+    try {
+      if (window.parent !== window && scrollToTarget(window.parent.document)) {
+        window.parent.history.replaceState(null, '', `#${DOWNLOAD_GUIDE_ANCHOR}`);
+        return;
+      }
+    } catch {
+      // Cross-origin iframes need the parent page to handle the scroll request.
+    }
+
+    window.parent.postMessage(DOWNLOAD_GUIDE_MESSAGE, '*');
+  };
+
   return (
     <div className="p-4 sm:p-8 pb-16 flex flex-col gap-6 sm:gap-8 min-h-full">
       {/* Header */}
@@ -135,9 +172,8 @@ export default function CountryCard({ country, onNext, onPrev, nextName, prevNam
           </div>
           <div className="flex justify-center">
             <a
-              href="https://www.athennian.com/2026-ubo-guide#download-guide"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`#${DOWNLOAD_GUIDE_ANCHOR}`}
+              onClick={handleDownloadGuideClick}
               className="relative z-10 bg-sleek-accent hover:bg-sleek-accent/90 text-white font-bold py-3 sm:py-3.5 px-8 sm:px-10 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base"
             >
               <Download size={18} />
