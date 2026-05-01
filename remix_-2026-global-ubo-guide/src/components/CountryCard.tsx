@@ -136,7 +136,8 @@ export default function CountryCard({ country, onNext, onPrev, nextName, prevNam
           <div className="flex justify-center">
             <a
               href="https://www.athennian.com/2026-ubo-guide#download-guide"
-              target="_top"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative z-10 bg-sleek-accent hover:bg-sleek-accent/90 text-white font-bold py-3 sm:py-3.5 px-8 sm:px-10 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base"
             >
               <Download size={18} />
